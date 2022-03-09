@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+
+:root {
+    --Dark-Grayish-Blue : hsl(217, 19%, 35%);
+    --Desaturated-Dark-Blue : hsl(214, 17%, 51%);
+    --Grayish-Blue: hsl(212, 23%, 69%);
+    --Light-Grayish-Blue: hsl(210, 46%, 95%);
+    --primary-font-size : 13px;
+    --Manrope : 'Manrope', sans-serif;
+    --medium-font-weight: 500;
+    --bold-font-weight: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--Manrope);
+    background-color: var(--Light-Grayish-Blue);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container {
+    display: flex;
+    max-width: 47rem;
+    /* border-radius: 10px;
+    overflow: hidden; */
+    box-shadow: 5px 5px 10px var(--Light-Grayish-Blue);
+}
+
+.card-text {
+    padding: 2rem 2.5rem;
+    background-color: #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.primary-text {
+    font-weight: var(--bold-font-weight);
+    color: var(--Dark-Grayish-Blue);
+    font-size: 1.3rem; 
+}
+
+.secondary-text {
+    margin-block: 1rem;
+    font-size: var(--primary-font-size);
+    color: var(--Desaturated-Dark-Blue);
+    line-height: 1.5;
+}
+
+.card-image img {
+    width: 300px;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.profile-picture {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.profile-info__name {
+    color: var(--Dark-Grayish-Blue);
+    font-weight: var(--bold-font-weight);
+    font-size: 0.85rem;
+}
+
+.profile-info__date {
+    color: var(--Grayish-Blue);
+    font-size: 0.76rem;
+    word-spacing: 1px;
+}
+
+.share-btn {
+    margin-left: auto;
+    border-radius: 50%;
+    background: var(--Light-Grayish-Blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
+    position: relative;
+}
+
+.share-btn i {
+    color: var(--Dark-Grayish-Blue);
+}
+
+.share-btn.active {
+    background: var(--Dark-Grayish-Blue);
+}
+
+.share-btn.active i {
+    color: #fff;
+}
+
+.share-btn .tooltip.active {
+    display: flex;
+}
+
+.share-btn .tooltip {
+    position: absolute;
+    display: none;
+    align-items: center;
+
+    gap: 1rem;
+    background: var(--Dark-Grayish-Blue);
+    top: -250%;
+    padding: 1.1rem 2.2rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px var(--Grayish-Blue);
+}
+
+.share-btn .tooltip img {
+    height: 17px;
+}
+
+.share-btn .tooltip::before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: var(--Dark-Grayish-Blue);
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.share-btn .tooltip span {
+    color: var(--Grayish-Blue);
+    font-weight: 100;
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+
+}
+
+footer {
+    margin-top: 1rem;
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { text-decoration: none; color: hsl(323, 74%, 60%); }
+
+@media screen and (max-width: 425px) {
+    .card-container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .card-image img {
+        width: 100%;
+        display: block;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .card-text {
+        padding-inline: 2rem;
+        border-radius: 0 0 10px 10px;
+        position: relative;
+    }
+
+    .primary-text {
+        font-size: 1.140rem;
+    }
+
+    .share-btn {
+        position: static;
+    }
+
+    .share-btn .tooltip {
+        top: auto;
+        bottom:0;
+        left: 0;
+        border-radius: 0;
+        width: 100%;
+        border-radius: 0 0 10px 10px;
+        padding-block: 1.7rem;
+    }
+
+    .share-btn .tooltip::before {
+        display: none;
+        
+    }
+}
