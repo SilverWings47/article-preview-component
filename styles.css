@@ -72,6 +72,7 @@ main {
     display: flex;
     align-items: center;
     margin-top: 1.5rem;
+    position: relative;
 }
 
 .profile-picture {
@@ -106,8 +107,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 33px;
-    height: 33px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
     position: relative;
 }
@@ -118,34 +119,35 @@ main {
 
 .share-btn.active {
     background: var(--Dark-Grayish-Blue);
+    z-index: 22;
 }
 
 .share-btn.active i {
     color: #fff;
 }
 
-.share-btn .tooltip.active {
+.tooltip.active {
     display: flex;
 }
 
-.share-btn .tooltip {
+.tooltip {
     position: absolute;
     display: none;
     align-items: center;
-
     gap: 1rem;
     background: var(--Dark-Grayish-Blue);
-    top: -250%;
+    bottom: 150%;
+    right: -27.5%;
     padding: 1.1rem 2.2rem;
     border-radius: 10px;
     box-shadow: 5px 5px 20px var(--Grayish-Blue);
 }
 
-.share-btn .tooltip img {
+.tooltip img {
     height: 17px;
 }
 
-.share-btn .tooltip::before {
+.tooltip::before {
     content: '';
     display: block;
     width: 18px;
@@ -157,7 +159,7 @@ main {
     transform: translateX(-50%) rotate(45deg);
 }
 
-.share-btn .tooltip span {
+.tooltip span {
     color: var(--Grayish-Blue);
     font-weight: 100;
     font-size: 0.8rem;
@@ -172,10 +174,11 @@ footer {
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { text-decoration: none; color: hsl(323, 74%, 60%); }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
     .card-container {
         flex-direction: column;
         width: 90%;
+        position: relative;
     }
 
     .card-image img {
@@ -186,6 +189,7 @@ footer {
 
     .card-text {
         padding-inline: 2rem;
+        padding-bottom: 1rem;
         border-radius: 0 0 10px 10px;
         position: relative;
     }
@@ -194,22 +198,29 @@ footer {
         font-size: 1.140rem;
     }
 
-    .share-btn {
+    .profile {
         position: static;
     }
 
-    .share-btn .tooltip {
-        top: auto;
+    .tooltip {
+        right: 0;
         bottom:0;
-        left: 0;
-        border-radius: 0;
         width: 100%;
         border-radius: 0 0 10px 10px;
         padding-block: 1.7rem;
+        gap: 2rem;
     }
 
-    .share-btn .tooltip::before {
+    .tooltip::before {
         display: none;
         
+    }
+
+    .share-btn.active {
+        background: var(--Desaturated-Dark-Blue);
+    }
+
+    .secondary-text {
+        margin-bottom: 2rem;
     }
 }
